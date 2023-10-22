@@ -1,0 +1,77 @@
+[
+    {
+     "id": 1,
+     "name": "Liderazgo y comportamiento organizacional",
+     "seller": "Carla López   ",
+     "price": "",
+     "stock": "8",
+     "shipping": "",
+     "payment": "",
+     "status": "destacados",
+     "description": "",
+     "image": "Liderazgo y comportamiento organizacional.jfif"
+    },
+    {
+     "id": 2,
+     "name": "Introducción a la Ingeniería del Software",
+     "seller": "José López ",
+     "price": "",
+     "stock": "",
+     "shipping": "",
+     "payment": "",
+     "status": "",
+     "image": "Introducción a la Ingeniería del Software.jfif",
+     "description": ""
+    },
+    {
+     "id": 3,
+     "name": "Introducción a la gestión de proyectos",
+     "seller": "José López ",
+     "price": "456",
+     "stock": "",
+     "shipping": "",
+     "payment": "",
+     "status": "",
+     "image": "Introducción a la gestión de proyectos.png",
+     "description": ""
+    },
+    {
+     "id": 4,
+     "name": "Python: aprender a programar",
+     "price": 100,
+     "discount": 50,
+     "status": "destacados",
+     "description": "Apila los gatos!",
+     "image": "Python aprender a programar.jfif",
+     "seller": "José López",
+     "stock": 2,
+     "shipping": 340,
+     "payment": 3
+    },
+    {
+     "id": 5,
+     "name": "Introducción a Linux",
+     "price": 100,
+     "discount": 50,
+     "status": "destacados",
+     "description": "Zapatos",
+     "image": "Introducción a Linux.jfif",
+     "seller": "José López",
+     "stock": 2,
+     "shipping": 340,
+     "payment": 3
+    },
+    {
+     "id": 6,
+     "name": "Fundamentos de Ciberseguridad: un enfoque práctico",
+     "price": 100,
+     "discount": 50,
+     "status": "destacados",
+     "description": "Zapatos",
+     "image": "Fundamentos de Ciberseguridad un enfoque práctico.jfif",
+     "seller": "José López",
+     "stock": 2,
+     "shipping": 340,
+     "payment": 3
+    }
+   ]

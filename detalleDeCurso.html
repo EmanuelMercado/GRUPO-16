@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Index</title>
+    <link rel="stylesheet" href="css/estilos_01.css">
+    <!-- FAVICON -->
+    <link rel="icon" href="./imgs/logo1.png">
+    <!-- Animate.style -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+</head> 
+
+<body>
+    <header class="header">
+        <div class="header2">
+            <div>
+                <img src="./imgs/logo1.png" width="20%" alt="">
+            </div>
+            <div class="logo">
+                <h1>Instituto Grupo 16</h1>
+            </div>
+        </div>
+        <div>
+            <form action="" method="post">
+                <input type="search" name="buscar" placeholder="buscar">
+            </form>
+        </div>
+
+        <div>
+            <p>
+                <button onclick="location.href='principal.html'" class="button" name="button"> Detalle de Cursos
+                </button>
+
+            </p>
+        </div>
+    </header>
+    <main>
+
+        <!-- Producto al que ingreso -->
+        <section class="">
+            <article class="flex-container" id="1">
+                <div class="flex-item">
+                    <img src="./imgs/Liderazgo y comportamiento organizacional.jfif" alt="" width="90%">
+                </div>
+                <div class="flex-item">
+                    <h2>
+                    Liderazgo y comportamiento organizacional
+                    </h2>
+                    <p>
+                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ullam cum, tempore est officia molestias
+                    in ipsum hic dignissimos quae itaque reiciendis doloremque excepturi vitae? Fuga dolorem ipsam
+                    dignissimos repellat vel!
+                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iste illo officiis provident quas inventore
+                    quae ex. Obcaecati nulla nostrum, praesentium tenetur, quis pariatur consequatur cupiditate iste
+                    voluptas optio numquam ducimus?
+                    </p>
+                </div>
+                <div class="flex-item">
+                    <h1>Detalles del profesor</h1>
+                    <button id="fetchButton">Cargar datos del profesor</button>
+                    <div id="personInfo">
+                    <!-- Los datos de la persona se mostrarán aquí -->
+                    </div>
+                </div>
+            
+                <script src="randomUser.js"></script>
+            </article>
+
+            <article class="productDescription">
+                <div class="productPrice"> 
+                   <h3 class="price-detail">$ <%= product.price %></h3>
+                </div>
+                <div class="paymentMethods">
+                    Hasta <%= product.payment %> cuotas sin interés
+                </div>
+                <div class ="bannerMl">
+                     <img src="https://imgmp.mlstatic.com/org-img/banners/ar/medios/125X125.jpg" 
+                     title="Mercado Pago - Medios de pago" alt="Mercado Pago - Medios de pago" 
+                     width="125" height="125"/>
+                </div>
+
+                <div class="productDescription">
+                    <p class="description"><%= product.description %></p>
+                </div>
+    
+                <div>
+                   <ul class="deliveryDetails">
+                        <li class="seller">Vendedor: <%= product.seller %></li>
+                        <li class="stock">Stock: disponible <%= product.stock %>  unidades</li>
+                        <li class="shippingCost">Envio a domicilio: $ <%= product.shipping %></li>
+                    </ul> 
+                </div>
+
+                
+                <div class="comprar-button">
+                    <button class="button-agregar" id="questionZone" type="submit" >Agregar al carrito</button>
+                    <button class="button-comprar" id="questionZone" type="submit" >Comprar ahora</button>
+                </div>
+
+            </article>
+        </section>
+
+<!-- Caja de preguntas -->
+        <section class="questionField">
+            <h4 class="subtitle">¡Déjanos tu pregunta!</h4>
+            <div class="userData">
+                <form class="questionField-form" id="questionZone" action="/" method="POST">
+
+                    <label class ="label-detail" for="email"> Correo electronico</label>
+                    <input class ="input-detail email" type="email" name="email" placeholder="juan@soto.com">
+                    <div class="emailErrorDiv errorDiv" style="display:none;" style="color:red; "></div>     
+
+                    <label class ="label-detail" for="question">¿Quieres personalizar tu producto?</label>
+                    <input class ="input-detail questionBox" type="text" name="question" placeholder="Lo haremos especial para vos...">
+                    <div class="commentErrorDiv errorDiv" style="display:none;" style="color:red; "></div>     
+
+
+                    <div class= "buttom">
+                        <buttom class= "submit-button" type="submit">Borrar</buttom>
+                        <button class="questionBoxButton" id="questionZone" type="submit" >Enviar</button>
+                    </div>
+                    <div class="formErrorDiv errorDiv" style="display:none;" style="color:red; "></div>     
+
+                </form>
+            </div>
+        </section>
+
+        <div id="adminOnly" style="display:none">
+            <h4>SECCIÓN SOLO DISPONIBLE PARA EL ADMINISTRADOR</h4>
+            <a href="/product/<%= product.idProducts %>/edit?_method=EDIT" class="action-button edit"><button style= "background: blue; color: white">EDITAR PRODUCTO</button></a>
+            <form action="/product/<%= product.idProducts %>/delete?_method=DELETE" method="POST" >
+                <button style= "background: tomato; color: white" type="submit" class="action-button delete">ELIMINAR</button>
+                <p>Atención! La acción de eliminar es irrreversible</p>
+            </form>
+        </div>
+        <!-- Productos relacionados -->
+
+        <div class="container row subtitle">
+            <h2>Productos relacionados</h2>
+        </div>
+            
+        <section class= "container row">
+            <% for (let i = 0; i < (destacados.length > 4 ? 4 : destacados.length); i++) { %> 
+                <article class="relatedProduct col">
+                    <div class= "img-box">
+                        <a href="/product/<%=destacados[i].idProducts%>/detail">                               
+                          <img  src= "/img/<%= destacados[i].image %> " alt="<%= destacados[i].name %> ">
+                        </a>    
+                     </div>
+                     <div class="related-article1">
+                        <h3 class="price">$ <%= destacados[i].price %> </h3>
+                        <h4 class="payment-method">Hasta <%= destacados[i].payment %>  cuotas</h4>
+                        <h4 class="description"><%= destacados[i].name %> </h4>
+                    </div>
+                </article> 
+            <% } %>
+        </section>
+    </main>
+
+    <!-- ICON -->
+    <div class = "whatsapp">
+        <a href="https://api.whatsapp.com/send/?phone=59891545444&text=%22Hola+%C2%A1+Hecho+a+%20Mano+!+Estoy+interesadx+en+.+.+.%22&app_absent=0" class="whatsapp" 
+        target="_blank"> <i class="fa fa-whatsapp whatsapp-icon"></i></a>
+        </div>
+       
+    
+        <!--SOCIAL MEDIA-->
+    
+        <div class= "red-social-container">
+            <h4>Encontranos también en:</h4>
+            <a class= "text-footer-yellow" href="https://www.instagram.com/explore/tags/artesanias/"><i class="fab fa-instagram"></i></a>
+            <a class= "text-footer-yellow" href="https://www.facebook.com/groups/188953441869265"><i class="fab fa-facebook-f"></i></a>
+        </div>
+    
+        <footer class="footer">
+            <div>
+                <div>
+                    <img src="./imgs/logo1.png" width="7%" alt="">
+                </div>
+                <div>
+                    Instituto Grupo 16
+                    <br>
+                    @ 2023 - Todos los derechos reservados
+                </div>
+            </div>
+        </footer>
+      </body>
+    </html>
