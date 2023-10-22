@@ -4,10 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formulario</title>
+    <title>Formulario de Contacto</title>
     <link rel="stylesheet" href="css/estilos_01.css">
     <!-- FAVICON -->
     <link rel="icon" href="/040  Proyecto/opc_01/imgs/logo1.png">
+    <script src="/040  Proyecto/opc_01/js/validacion.js"></script>
 </head>
 
 <body>
@@ -43,16 +44,91 @@
         </nav> -->
     </header>
 
-    <section id="cajas1">
+
+    <h1>Formulario de Contacto</h1>
+    <form id="formulario" onsubmit="return validarFormulario()">
+
+        <div>
+            <LABel>
+                Nombre
+                <BR>
+                <input type="text" 
+                id="Nombre" name="Nombre" required>
+            </LABel>
+        </div>
+
+        
+        <div>
+            <LABel>
+                Apellido
+                <BR>
+
+                <input type="text" id="Apellido" name="Apellido" required>
+            </LABel>
+        </div>
 
 
-        <h2>
-            Formulario de Consulta (Mercedes)
-        </h2>
+        <div>
+            <LABel for="campoemail">Email
+                <BR>
+                <input type="email" name="email" id="campoemail" required>
+            </label>
+
+        </div>
+
+        <div>
+            <LABel for="Telefono">Teléfono
+                <BR>
+                <input type="tel" name="Telefono" id="Telefono" required>
+            </label>
+
+        </div>
+
+        <div>
+
+            <label> Pais
+                <select name="Pais" required>
+                    <option value>Seleccionar...</option>
+                    <option value="AR">Argentina</option>
+                    <option value="BE">Bélgica</option>
+                    <option value="BO">Bolivia</option>
+                    <option value="BR">Brasil</option>
+                    <option value="NO">Noruega</option>
+                    <option value="TR">Turquía</option>
+                    <option value="ZM">Zambia</option>
+                    <option value="ZW">Zimbabue</option>
+                </select>
+                </select>
+            </label>
+
 
 
         </div>
-    </section>
+
+
+        <div>
+            <label>Mensaje
+                <br>
+
+                <textarea name="mensaje" id="" cols="30" rows="5"></textarea>
+            </label>
+
+
+        </div>
+
+        <!-- <BUTTon type="submit">ENVIAR INFO</BUTTon> -->
+
+        <input type="submit" value="Enviar">
+
+        </div>
+
+
+    </form>
+
+
+
+
+
 
     <footer class="footer">
         <div>
