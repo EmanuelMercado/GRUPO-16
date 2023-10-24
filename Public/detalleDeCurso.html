@@ -40,7 +40,7 @@
 
         <!-- Producto al que ingreso -->
         <section class="">
-            <article class="flex-container" id="1">
+            <article class="flex-container1">
                 <div class="flex-item">
                     <img src="./imgs/Liderazgo y comportamiento organizacional.jfif" alt="" width="90%">
                 </div>
@@ -68,38 +68,13 @@
                 <script src="randomUser.js"></script>
             </article>
 
-            <article class="productDescription">
-                <div class="productPrice"> 
-                   <h3 class="price-detail">$ <%= product.price %></h3>
-                </div>
-                <div class="paymentMethods">
-                    Hasta <%= product.payment %> cuotas sin interés
-                </div>
-                <div class ="bannerMl">
+
+            <div class ="bannerMl">
                      <img src="https://imgmp.mlstatic.com/org-img/banners/ar/medios/125X125.jpg" 
                      title="Mercado Pago - Medios de pago" alt="Mercado Pago - Medios de pago" 
                      width="125" height="125"/>
-                </div>
+            </div>
 
-                <div class="productDescription">
-                    <p class="description"><%= product.description %></p>
-                </div>
-    
-                <div>
-                   <ul class="deliveryDetails">
-                        <li class="seller">Vendedor: <%= product.seller %></li>
-                        <li class="stock">Stock: disponible <%= product.stock %>  unidades</li>
-                        <li class="shippingCost">Envio a domicilio: $ <%= product.shipping %></li>
-                    </ul> 
-                </div>
-
-                
-                <div class="comprar-button">
-                    <button class="button-agregar" id="questionZone" type="submit" >Agregar al carrito</button>
-                    <button class="button-comprar" id="questionZone" type="submit" >Comprar ahora</button>
-                </div>
-
-            </article>
         </section>
 
 <!-- Caja de preguntas -->
@@ -127,36 +102,12 @@
             </div>
         </section>
 
-        <div id="adminOnly" style="display:none">
-            <h4>SECCIÓN SOLO DISPONIBLE PARA EL ADMINISTRADOR</h4>
-            <a href="/product/<%= product.idProducts %>/edit?_method=EDIT" class="action-button edit"><button style= "background: blue; color: white">EDITAR PRODUCTO</button></a>
-            <form action="/product/<%= product.idProducts %>/delete?_method=DELETE" method="POST" >
-                <button style= "background: tomato; color: white" type="submit" class="action-button delete">ELIMINAR</button>
-                <p>Atención! La acción de eliminar es irrreversible</p>
-            </form>
-        </div>
         <!-- Productos relacionados -->
 
-        <div class="container row subtitle">
-            <h2>Productos relacionados</h2>
+        <div>
+            <h2>Otros cursos</h2>
         </div>
             
-        <section class= "container row">
-            <% for (let i = 0; i < (destacados.length > 4 ? 4 : destacados.length); i++) { %> 
-                <article class="relatedProduct col">
-                    <div class= "img-box">
-                        <a href="/product/<%=destacados[i].idProducts%>/detail">                               
-                          <img  src= "/img/<%= destacados[i].image %> " alt="<%= destacados[i].name %> ">
-                        </a>    
-                     </div>
-                     <div class="related-article1">
-                        <h3 class="price">$ <%= destacados[i].price %> </h3>
-                        <h4 class="payment-method">Hasta <%= destacados[i].payment %>  cuotas</h4>
-                        <h4 class="description"><%= destacados[i].name %> </h4>
-                    </div>
-                </article> 
-            <% } %>
-        </section>
     </main>
 
     <!-- ICON -->
